@@ -972,3 +972,227 @@ a {
   line-height:1.8;
   color:#4b5563;
 }
+
+Project section temoplate 
+:root{
+  --lv-ink:#0b1220;
+  --lv-muted:#5a6a7d;
+  --lv-bg:#ffffff;
+  --lv-card-bg:#ffffff;
+  --lv-border:#e7edf5;
+  --lv-shadow:0 14px 36px rgba(10,20,36,0.10);
+  --lv-shadow-soft:0 10px 24px rgba(10,20,36,0.06);
+  --lv-orange:#155e75;
+  --lv-orange-600:#0f766e;
+  --lv-orange-400:#155e75;
+  --lv-radius:18px;
+}
+
+/* ---------- Section ---------- */
+.generators-1-project{
+  background: var(--lv-bg);
+  color: var(--lv-ink);
+  padding: clamp(40px, 1vw, 20px) 16px;
+}
+
+.generators-container{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.generators-header{
+  margin-bottom:26px;
+}
+
+.generators-kicker{
+  display:inline-block;
+  font:600 12px/1.1 system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#06607b;
+  background:#155f7537;
+  padding:8px 12px;
+  border-radius:999px;
+}
+
+.generators-header h2{
+  margin:12px 0 0;
+  font:700 clamp(22px,3.5vw,34px)/1.25 system-ui, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* ---------- Grid ---------- */
+.generators-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:22px;
+  margin-top:16px;
+}
+
+@media (max-width:1024px){
+  .generators-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media (max-width:640px){
+  .generators-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ---------- Card ---------- */
+.generators-card{
+  background:var(--lv-card-bg);
+  border:1px solid var(--lv-border);
+  border-radius:var(--lv-radius);
+  overflow:hidden;
+  box-shadow:var(--lv-shadow-soft);
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  opacity:1;
+}
+
+.generators-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lv-shadow);
+  border-color:#98e7ff;
+}
+
+.generators-media{
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+}
+
+.generators-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.03);
+  transition:transform .5s ease;
+}
+
+.generators-card:hover .generators-media img{
+  transform:scale(1.06);
+}
+
+.generators-year{
+  position:absolute;
+  inset:14px auto auto 14px;
+  background:linear-gradient(135deg, var(--lv-orange), var(--lv-orange-400));
+  color:#fff;
+  font-weight:700;
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+}
+
+.generators-body{
+  padding:18px 18px 20px;
+  color:var(--lv-ink);
+}
+
+.generators-body h3{
+  margin:2px 0 8px;
+  font:700 18px/1.35 system-ui, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.generators-client{
+  color:var(--lv-muted);
+  margin:0 0 10px;
+  font-size:14px;
+}
+
+.generators-points{
+  margin:0;
+  padding:0 0 0 18px;
+  color:#253048;
+}
+
+.generators-points li{
+  margin:6px 0;
+}
+
+/* ---------- More button ---------- */
+.generators-more-wrap{
+  grid-column:1 / -1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:8px 0 6px;
+}
+
+.generators-more{
+  border:0;
+  cursor:pointer;
+  color:#023e50;
+  font-weight:700;
+  padding:12px 18px;
+  border-radius:12px;
+  background:linear-gradient(135deg, #cce9f2, #69d3f3);
+  box-shadow:0 10px 24px #90e4fe68;
+  transition:transform .25s ease, box-shadow .25s ease, filter .2s ease;
+}
+
+.generators-more:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px #149cc69d;
+  background:linear-gradient(135deg, #42d3ff, #25ccff);
+}
+
+.generators-more:active{
+  transform:translateY(0);
+}
+
+/* ---------- Reveal animations ---------- */
+.reveal-left{
+  opacity:0;
+  transform:translateX(-40px);
+}
+
+.reveal-right{
+  opacity:0;
+  transform:translateX(40px);
+}
+
+.is-visible{
+  opacity:1;
+  transform:translateX(0);
+  transition:transform .7s cubic-bezier(.2,.6,.2,1), opacity .7s;
+}
+
+/* hide later cards until More Projects is clicked */
+.is-hidden{
+  display:none;
+}
+
+/* ---------- Portrait image override ---------- */
+.generators-1-project .generators-media{
+  aspect-ratio:10/11;
+  max-height:360px;
+  overflow:hidden;
+}
+
+.generators-1-project .generators-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  transform:none;
+}
+
+@media (min-width:1200px){
+  .generators-1-project .generators-media{
+    max-height:640px;
+  }
+}
+
+.generators-1-project .generators-card.is-23 .generators-media{
+  aspect-ratio:2/3;
+}
+
+.generators-1-project .generators-year{
+  inset:12px auto auto 12px;
+}
