@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tpzqxw&&@03wq2yzgf!gzh6u2=044s2j+_!#jioe(#f^6%quzo'
  
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # keep false on server, true locally if needed
+DEBUG = False  # keep false on server, true locally if needed
  
 if DEBUG:
     SECURE_SSL_REDIRECT = False
@@ -35,7 +35,7 @@ else:
     SESSION_COOKIE_SECURE = True
 
 
-ALLOWED_HOSTS = ["projectmanagement.ieng.tech", ".ieng.tech", "*"]
+ALLOWED_HOSTS = ["projectmanagement.ieng.tech", ".ieng.tech"]
  
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
